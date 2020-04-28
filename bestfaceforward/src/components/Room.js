@@ -6,6 +6,8 @@ import { GridLoader } from "react-spinners";
 import {Link} from "react-router-dom";
 import bro from "../images/mask.png"
 
+//Room for live video using hooks
+
 const Room = ({ roomName, token, handleLogout, parentCallback2}) => {
   const [room, setRoom] = useState(null);
   const [participants, setParticipants] = useState([]);
@@ -42,7 +44,7 @@ const Room = ({ roomName, token, handleLogout, parentCallback2}) => {
       );
     };
 
-
+    //get camera and audio
     Video.connect(token, {
       name: roomName
     }).then(room => {

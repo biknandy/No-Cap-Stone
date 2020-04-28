@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import ScrollspyNav from "react-scrollspy-nav";
 
+//List of current users
+
 export default class Userlist extends Component {
 
       render() {

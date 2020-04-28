@@ -16,6 +16,9 @@ import { faMehBlank, faGrinBeam, faFrown } from '@fortawesome/free-solid-svg-ico
 var prevTime = 10;
 var ts = ""
 var finalResult = ""
+
+//Component for live video analysis 
+
 class VideoComponent extends Component {
   constructor(props){
     super(props)

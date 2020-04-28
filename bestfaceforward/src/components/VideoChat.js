@@ -5,6 +5,7 @@ import Room from './Room';
 import VideoComponent from './VideoComponent'
 import {Row, Col,Card,Button} from 'react-bootstrap';
 
+//Legacy
 
 const VideoChat = (props) => {
   const [count, setCount] = useState(0);

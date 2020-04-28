@@ -3,8 +3,6 @@ import VideoChat from '../components/VideoChat.js'
 import {Row, Col,Button} from 'react-bootstrap';
 
 
-
-
 const VideoCall = (props) => {
   const [token, setToken] = useState(null);
   console.log("videocall",props.location.state.name)
@@ -28,8 +26,8 @@ const VideoCall = (props) => {
   },[]);
   const handleLogout=useCallback(event=>{
     setToken(null)
-    
-    
+
+
   })
     if (token){
       return (

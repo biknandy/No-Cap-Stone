@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faIdCard } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
+//Dashboard for logged in recruiter
+
 function useAsyncHook(){
   const [DBInfo,setDBInfo]=useState([])
   useEffect(() => {
