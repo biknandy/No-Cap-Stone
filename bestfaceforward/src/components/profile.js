@@ -1,6 +1,7 @@
 import React from "react";
 import {Card,Col,Row} from 'react-bootstrap';
 
+//legacy - do not use
 
 const Profile=(props)=>{
     if(props.right){

@@ -4,6 +4,10 @@ import {Card, Row, Col, Button,Accordion} from 'react-bootstrap';
 import {RadarChart, Radar, PolarGrid, PolarRadiusAxis, PolarAngleAxis, XAxis, YAxis, CartesianGrid, Area,AreaChart, Tooltip, Legend} from 'recharts';
 import StarRatingComponent from 'react-star-rating-component';
 
+//ANALYSIS REPORT FOR LIVE AND STATIC
+
+//state vars: txt, videoURl, videoScore, analysis, keywords, concepts
+
 class Report extends Component {
   constructor(props){
     super(props);
@@ -55,6 +59,7 @@ class Report extends Component {
     return count;
   }
 
+  //grab subjects (keywords and concepts) from db
   getSubjects(){
     axios.post('http://localhost:3001/api/subjects', {transcript: this.state.txt})
    .then(res => {
@@ -93,27 +98,14 @@ class Report extends Component {
    })
   }
 
+  //Live and static text analysis from backend
   analyzeText = () => {
-
-    // var txt = this.state.txt.toLowerCase()
-    // var words = txt.split(" ")
-    // var wordArray = Object.values(words)
-
-    // this.setState({filler: this.getOccurrence(wordArray, 'um')})
-
-
 
     //Post call to backend for analysis of transcript
     axios.post('http://localhost:3001/api/transcript', {transcript: this.state.txt})
    .then(res => {
 
      //Gets analysis from backend
-     // var tones = res.data.toneAnalysis.result.document_tone.tones
-     // for (var tone in analysis){
-     //   if (tone.hasOwnProperty(tone)){
-     //     tone.score
-     //   }
-     // }
      var tones = res.data.toneAnalysis.result.document_tone.tones
      var finalTone = [ {tone_name: 'Anger', score: 0.1},
                  {
@@ -145,10 +137,11 @@ class Report extends Component {
      this.setState({
        analysis: finalTone
      })
-     //console.log(res.data.toneAnalysis.result);
-     //console.log(this.state.analysis)
+
    })
   }
+
+  //What you did bad feedback
   getNegFeedback(){
     let negFeedback=[]
 
@@ -250,16 +243,10 @@ class Report extends Component {
         return negFeedback
       }
     }
-    // if(this.state.filler>6){
-    //   res+= "You are using a lot of filler words when you respond. Try cutting back on the ums and uhs. "
-    // } else if(this.state.filler>3) {
-    //   res+="You are using some filler words in your response. Try pausing between sentences instead of using ums and uhs. "
-    // } else {
-    //   res+="You are barely using any filler words. Good job! "
-    // }
 
   }
 
+  //Get good feeback from backend
   getPosFeedback(){
     let posFeedback=[]
 
@@ -318,13 +305,6 @@ class Report extends Component {
         return posFeedback
       }
     }
-    // if(this.state.filler>6){
-    //   res+= "You are using a lot of filler words when you respond. Try cutting back on the ums and uhs. "
-    // } else if(this.state.filler>3) {
-    //   res+="You are using some filler words in your response. Try pausing between sentences instead of using ums and uhs. "
-    // } else {
-    //   res+="You are barely using any filler words. Good job! "
-    // }
 
   }
   toPercent(decimal, fixed = 0){
@@ -370,6 +350,8 @@ class Report extends Component {
 
     return res
   }
+
+  //Engagement score
   maxScore(scores){
     let maxScore=0
     let maxInd=0
@@ -422,6 +404,7 @@ class Report extends Component {
     return res;
   }
 
+  //engagement to star rating
   getStarRating(){
     let analysisScore=0.0
     for (var a of this.state.analysis){

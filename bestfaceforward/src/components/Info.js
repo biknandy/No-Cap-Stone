@@ -6,30 +6,12 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVideo } from '@fortawesome/free-solid-svg-icons'
 
+//Parent: UserDash
+// Information about a candidate
+
 const Info = (props) => {
   const [token, setToken] = useState(null);
   const [name, setName] = useState("test");
-
-
-  // const handleClick = useCallback(
-  //   async event => {
-  //     event.preventDefault()
-  //     const data = await fetch('/video/token', {
-  //       method: 'POST',
-  //       body: JSON.stringify({
-  //         identity: name,
-  //         room: props.id
-  //       }),
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     }).then(res => res.json());
-  //     setToken(data.token);
-  //   },
-  //   []
-  // );
-
-
   const handleLogout = useCallback(event => {
     setToken(null);
   }, []);

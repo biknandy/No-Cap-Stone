@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+//Parent: Room
+// a singular participant for video call element
 
 const Participant = ({ participant, callbackF, uname , callbackU}) => {
   console.log(participant)
@@ -18,6 +20,7 @@ const Participant = ({ participant, callbackF, uname , callbackU}) => {
     setVWidth(vid.videoHeight);
   })
 
+  //set audio/video/datatracks for live video 
   useEffect(() => {
     setVideoTracks(Array.from(participant.videoTracks.values()));
     setAudioTracks(Array.from(participant.audioTracks.values()));

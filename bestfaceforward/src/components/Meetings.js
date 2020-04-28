@@ -15,6 +15,8 @@ import facialAnalysis2 from "../images/facialAnalysis2.png"
 import speachAnalysis1 from "../images/speachAnalysis1.png"
 import speachAnalysis2 from "../images/speachAnalysis2.png"
 
+// Live video Meeting
+
  const Meetings = ({username}) => {
    const [token, setToken] = useState(null);
    const [previewToken, setPreviewToken] = useState(false);

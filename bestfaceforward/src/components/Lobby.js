@@ -2,6 +2,9 @@ import React from 'react';
 import { Form, Button, Col, Row, Card, Container} from 'react-bootstrap';
 import {Link} from "react-router-dom";
 
+//Parent: VideoComponent
+// Lobby for live video call
+
 const Lobby = (props) => {
   return (
     <div>
